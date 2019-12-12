@@ -1,0 +1,62 @@
+
+<html>
+<head>
+<script>
+function result()
+{
+var numberOfQuest=3;         
+var correct = 0;  
+var wrong=0;       
+var notAttempted=0; 
+var total=0;
+for(var i = 1; i <=numberOfQuest; i++) {
+  var radios = document.getElementsByName('quest'+i);
+  for(var j = 0; j < radios.length; j++) {
+    var radio = radios[j];
+    if(radio.value == "correct" && radio.checked){
+    correct++;
+	total=total+1;
+    }
+	if(radio.value == "wrong" && radio.checked){
+	wrong++;
+	total=total+1;
+	}
+ }
+notAttempted=numberOfQuest-total;
+}
+             
+document.getElementById("quiz").innerHTML="The number of correct answers:"+correct+"<br>"+
+"The number of wrong answers:"+wrong+"<br>"+"The number of not attempted questions:"+notAttempted;
+}
+</script>
+</head>
+<body>
+
+<h2>QUIZ</h2>
+
+<form id="quiz">
+
+<p>1. What does HTML stand for?</p>
+<input id="answer" type="radio" name="quest1" value="wrong"> Home Tool Markup Language<br>
+<input id="answer" type="radio" name="quest1" value="correct"> Hyper Text Markup Language<br>
+<input id="answer" type="radio" name="quest1" value="wrong"> Hyperlinks and Text Markup Language<br>
+<input id="answer" type="radio" name="quest1" value="wrong"> Hyper Textual Markup Language<br>
+
+<p>2. Choose the correct HTML tag for the heading?</p>
+<input id="answer" type="radio" name="quest2" value="correct">< h1 ><br>
+<input id="answer" type="radio" name="quest2" value="wrong">< heading ><br>
+<input id="answer" type="radio" name="quest2" value="wrong">< head ><br>
+<input id="answer" type="radio" name="quest2" value="wrong">< h ><br>
+
+<p>3. How can you make a list that lists the items with numbers?</p>
+<input id="answer" type="radio" name="quest3" value="wrong">< list ><br>
+<input id="answer" type="radio" name="quest3" value="wrong">< ul ><br>
+<input id="answer" type="radio" name="quest3" value="correct">< ol ><br>
+<input id="answer" type="radio" name="quest3" value="wrong">< li ><br>
+
+<button class="submit" onclick="result()">Submit</button>
+
+</form>
+
+</body>
+</html>
